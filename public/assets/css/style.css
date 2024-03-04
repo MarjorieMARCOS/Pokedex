@@ -1,0 +1,47 @@
+:root {
+    --light-red: #C14040;
+    --dark-red: #982C2C;
+    --white-shell: #EFE3E3;
+  }
+
+
+* {
+
+    box-sizing: border-box;
+    margin: 15px;
+}
+
+body {
+    background-color : var(--light-red);
+}
+
+
+.title_container {
+    border-radius: 25px;
+    background-color: var(--white-shell);
+    color: var(--light-red);
+
+}
+
+.container_pokemon {
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: var(--dark-red);
+}
+
+img {
+    overflow: hidden;
+}
+
+span {
+    font-weight: 700;
+}
+
+a {
+    color: black;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    color: #573f3f;
+}

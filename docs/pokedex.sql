@@ -476,7 +476,7 @@ ALTER TABLE `pokemon`
   ADD KEY `number` (`number`);
 
 --
--- Index pour la table `pokemon_type`
+-- Index pour la table `pokemon_type`  pas fait
 --
 ALTER TABLE `pokemon_type`
   ADD PRIMARY KEY (`id`),
