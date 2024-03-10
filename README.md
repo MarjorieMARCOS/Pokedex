@@ -22,8 +22,8 @@ PHP, MYSQL, CSS avec Bootsrap et HTML.
 
 Création des trois models afin de récupérer les données de la base de données.
 
-- `Pokemon` : qui permettra de récupérer les informations d'un ou plusieurs Pokemon.
-- `Type` : qui permettra de récupérer le ou les types des Pokemon.
+- `Pokemon` : (extends de `CoreController`) qui permettra de récupérer les informations d'un ou plusieurs Pokemon.
+- `Type` : (extends de `CoreController`) qui permettra de récupérer le ou les types des Pokemon.
 - `CoreModel` : qui est le parent de `Pokemon` et `Type`.
 
 ## Controlleurs
