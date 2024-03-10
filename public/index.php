@@ -49,6 +49,25 @@ $router->map(
 	'pokemon'	// nom de la route
 ); 
 
+$router->map( 
+	'GET',	// Une requete de type GET
+	'/pokemon/type',	// Route de la page d'accueil 
+	[		// Target 
+		'controller' => PokemonController::class,
+		'method' => 'type',
+	],
+	'type'	// nom de la route
+); 
+$router->map( 
+	'GET',	// Une requete de type GET
+	'/pokemon/type/[i:id]',	// Route de la page d'accueil 
+	[		// Target 
+		'controller' => PokemonController::class,
+		'method' => 'pokemonList',
+	],
+	'pokemonList'	// nom de la route
+); 
+
 
 $match = $router->match();
 

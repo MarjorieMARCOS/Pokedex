@@ -6,11 +6,21 @@ use Pokedex\Models\Pokemon;
 use Pokedex\Utils\Database;
 use \PDO;
 
+
+/***
+ * Classe Type qui va gérer les requetes sql de la BBD Type
+ * 
+ * 
+ */
 class Type extends CoreModels
 {
     private $color;
 
-
+    /***
+     * Fonction qui va aller chercher tous les type d'un pokemon dans la base de données
+     * 
+     * 
+     */
     public function findAllTypeOfPokemon ($id)
     {
         // se connecter à la BDD
@@ -36,6 +46,25 @@ class Type extends CoreModels
         } else {
             return $result = []; 
         }
+
+    }
+
+
+    /***
+     * Fonction qui va aller chercher tous les type dans la base de données
+     * 
+     * 
+     */
+    public function findAll ()
+    {
+        $pdo = Database::getPDO();
+
+		$sql = 'SELECT type.* FROM type';
+		$pdoStatement = $pdo->query($sql);
+
+		$results = $pdoStatement->fetchAll(PDO::FETCH_CLASS, self::class);
+
+		return $results;
 
     }
 

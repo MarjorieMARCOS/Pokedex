@@ -6,6 +6,13 @@ use Pokedex\Models\type;
 use Pokedex\Utils\Database;
 use \PDO;
 
+
+
+/***
+ * Classe Pokemon qui va gérer les requetes sql de la BBD Pokemon
+ * 
+ * 
+ */
 class Pokemon extends CoreModels
 {
     private $hp;
@@ -16,6 +23,12 @@ class Pokemon extends CoreModels
     private $speed;
     private $number;
 
+
+    /***
+     * Fonction qui va aller chercher tous les pokemon dans la base de données
+     * 
+     * 
+     */
     public function findAll()
     {
         $pdo = Database::getPDO();
@@ -29,6 +42,12 @@ class Pokemon extends CoreModels
 
     }
 
+
+    /***
+     * Fonction qui va aller chercher un pokemon dans la base de données
+     * 
+     * 
+     */
     public function find($id)
     {
         // se connecter à la BDD
@@ -49,6 +68,38 @@ class Pokemon extends CoreModels
     }
 
 
+    /***
+     * Fonction qui va aller chercher tous les pokemon d'un type dans la BDD
+     * 
+     * 
+     */
+    public function findAllPokemonByType ($id)
+    {
+        // se connecter à la BDD
+        $pdo = Database::getPDO();
+
+        // écrire notre requête
+        $sql = 'SELECT pokemon.* 
+                FROM pokemon 
+                INNER JOIN pokemon_type 
+                ON pokemon_number = pokemon.number
+                INNER JOIN type 
+                ON type.id = type_id
+                WHERE type.id = :id';
+
+        // exécuter notre requête    
+        $pdoStatement = $pdo->prepare($sql);
+        $pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
+        $pdoStatement->execute();
+
+        if ($pdoStatement) {
+            $result = $pdoStatement->fetchAll(PDO::FETCH_CLASS, self::class);
+            return $result;
+        } else {
+            return $result = []; 
+        }
+
+    }
 
     public function getHp()
     {

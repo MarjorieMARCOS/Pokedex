@@ -4,6 +4,12 @@ namespace Pokedex\Models;
 use Pokedex\Models\Pokemon;
 use Pokedex\Models\type;
 
+
+/***
+ * Classe qui est parent des classes Pokemon et Type Model
+ * 
+ * 
+ */
 class CoreModels 
 {
     protected $id;

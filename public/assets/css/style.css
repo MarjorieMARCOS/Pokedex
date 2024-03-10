@@ -4,11 +4,14 @@
     --white-shell: #EFE3E3;
   }
 
-
 * {
 
     box-sizing: border-box;
     margin: 15px;
+    font-family: "Merriweather", serif;
+    font-weight: 800;
+    font-style: normal;
+    
 }
 
 body {
@@ -39,9 +42,66 @@ span {
 
 a {
     color: black;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease-in-out;
+    
 }
 
 a:hover {
-    color: #573f3f;
+    text-decoration: none;
+    color: #442828;
+    transform: scale(1.05);
+    
+}
+
+.type > a {
+    color: rgb(255, 255, 255);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid blue;
+}
+
+.type > a:hover {
+    text-decoration: none;
+    color: #442828;
+    transform: scale(1.02);
+}
+
+.container_detail {
+    background-color: var(--dark-red);
+}
+
+.jauge {
+    border: 1px solid black;
+    width: 600px; /* Largeur de la jauge */
+    height: 30px; /* Hauteur de la jauge */
+    background-color: rgb(65, 32, 32);
+    border-radius: 10px; /* Coins arrondis */
+    position: relative;
+    overflow: hidden;
+}
+
+.progression {
+    background-color: #ffffff; /* Couleur de la barre de progression */
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 10vw;
+}
+
+@media screen and (max-width: 600px) {
+
+    h2 {
+        font-size: 10px;
+    }
+}
+
+.list-group-item {
+
+    background-color: var(--light-red);
 }

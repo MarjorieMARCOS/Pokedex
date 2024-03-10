@@ -5,7 +5,7 @@ use AltoRouter;
 
 class CoreController
 {
-/**
+	/**
 	 * Instance d'AltRouter
 	 *
 	 * @var AltoRouter

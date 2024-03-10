@@ -6,6 +6,12 @@ use Pokedex\Models\Type;
 
 class MainController extends CoreController
 {
+
+    /***
+     * Fonction qui permet d'afficher la page "home"
+     * 
+     * 
+     */
     public function home ()
     {
         $pokemonModel = new Pokemon();
