@@ -4,7 +4,7 @@ namespace Pokedex\Controllers;
 use Pokedex\Models\Pokemon;
 use Pokedex\Models\Type;
 
-class PokemonController extends MainController
+class MainController extends MainController
 {
 
     /***

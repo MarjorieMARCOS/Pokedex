@@ -1,46 +1,36 @@
-# Pokédex
 
-Apprentis professeurs Chen, j'ai une requête pour vous ! Je souhaiterais un pokédex tout beau, tout neuf !
+# Pokedex
 
 Un pokédex est une sorte de dictionnaire de tous les pokémon (petites créatures fictives et adorables). Ces derniers peuvent se battre
 et disposent de caractéristiques de combat appelées statistiques. Chaque pokémon possède aussi un ou deux types (plante, roche, feu...).
 
-Vous aurez besoin pour cette mission des outils suivants : 
-- PHP
-- MySQL
-- HTML et CSS
-- Composer
-- AltoRouter
+Le projet est fait en MVC.
 
-Une base de données à importer vous est fournie à la racine du projet : `pokedex.sql`. Elle contient la liste des pokémon et 
-leurs types. Vous n'avez pas à la modifier.
+# Stack utilisées  
 
-# Instructions 
+PHP, MYSQL, CSS avec Bootsrap et HTML.
 
-Voici la liste des pages à faire, vous avez un aperçu de chaque dans le dossier résultat : 
+## Installation
 
-- Une [page d'accueil](resultat/home.png) qui liste tous les pokémon de la base
-- Une [page détail d'un pokémon](resultat/detail.png) qui affiche son type et ses stats
+1. Installer les dépendances avec `composer install`
+2. Importer la base de données `docs/database.sql`
+3. Créer le fichier `app/config.ini` à partir du fichier `app/config.ini.dist` et le compléter avec les informations de connexion à la base de données
+4. Installer `https://packagist.org/packages/benoclock/alto-dispatcher`
 
-La police utilisée est Bree Serif sur Google Fonts. Pour les couleurs, utilisez une pipette :wink:. Pour celles des types, elle est fournie dans la base.
 
-## Par où commencer ?
+## Models
 
-Voilà quelques pistes pour vous aider : 
+Création des trois models afin de récupérer les données de la base de données.
 
-- Commencez par installer AltoRouter avec composer
-- Il faut inclure l'autoloader pour pouvoir utiliser la classe AltoRouter
-- Vous aurez besoin d'un controller principal (MainController.php)
-- Il y a deux routes à créer
-- Pour récupérer les types d'un pokémon, il faut utiliser une jointure sur la table `pokemon_type`
-- Les images sont déjà prêtes et portent le nom du numéro du pokémon dans le dossier `public/img`
-- Pour les barres de statistiques, la valeur maximale est de 255. On peut donc utiliser un produit en croix pour le remplissage :wink:
+- `Pokemon` : qui permettra de récupérer les informations d'un ou plusieurs Pokemon
+- `Type` : qui permettra de récupérer le ou les types des Pokemon
+- `CoreModel` : qui est le parent de `Pokemon` et `Type`
 
-# Bonus
+## Controlleurs
 
-Je veux ajouter une fonctionnalité : récupérer des pokémons selon leur type.
+Création des deux controllers : 
 
-Il nous faudra donc : 
-- Une [page qui liste les types](resultat/types.png) de la base quand on clique sur l'un on arrive sur la page suivante
-- Une [page qui liste les pokémon filtrés par le type](resultat/electrik.png) cliqué sur la page précédente (electrik.png)
-
+- `MainController` = (extends de `CoreController`) qui permettra d'afficher la page home et va ainsi lister tous les Pokemon dans la BDD
+- `PokemonController` = (extends de `MainController`) qui permet la page des type et le détail sur un Pokemon
+- `CoreController` = (extends de `MainController`) qui permet d'afficher les tpl avec la méthode `show` 
+- `ErrorController` = (extends de `CoreController`) qui permet d'afficher pages d'error 
