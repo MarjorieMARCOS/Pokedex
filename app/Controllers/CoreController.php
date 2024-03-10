@@ -15,9 +15,6 @@ class CoreController
     /**
      * Constructeur du CoreController.
      * Cette fonction est appellée pour toute les pages visitée.
-     * Elle vérifie : 
-     * 1. est que l'utilisateur est bien connecté ET a les bons droits pour accéder à la page
-     * 2. si la page doit etre protégée par un token, la fonction vérifie la valeur du token
      *
      * @param [type] $routeName route demandée par le visiteur
      * @param [type] $altoRouter instance d'AltoRouter
@@ -30,7 +27,6 @@ class CoreController
     protected function show(string $viewName, $viewData = [])
     {
 
-      // On globalise $router car on ne sait pas faire mieux pour l'instant
 		$router = $this->router;
 
 		// Comme $viewData est déclarée comme paramètre de la méthode show()
